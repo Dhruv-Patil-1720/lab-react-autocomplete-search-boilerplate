@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   const [text, setText] = useState('');
-
+ // State to hold the text entered in the search input
   const [suggestion, setSuggestion] = useState([]);
-
+// Event handler for handling changes in the search input
   function handleChange(e) {
     const inputValue = e.target.value;
     setText(inputValue);
@@ -16,7 +16,7 @@ function App() {
       )
     );
   }
-
+ // Effect to handle the Escape key pressed action 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.keyCode === 27) {
@@ -30,7 +30,7 @@ function App() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, []);  // Empty dependency array ensures the effect runs only once
 
   return (
     <div className='container'>
