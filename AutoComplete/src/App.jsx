@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [text, setText] = useState('');
+
   const [suggestion, setSuggestion] = useState([]);
 
   function handleChange(e) {
@@ -20,7 +21,7 @@ function App() {
     const handleKeyDown = (e) => {
       if (e.keyCode === 27) {
         setSuggestion([]);
-        console.log('escape');
+        console.log('Escape');
       }
     };
 
@@ -34,8 +35,8 @@ function App() {
   return (
     <div className='container'>
       <h1>Search</h1>
-      <input type="text" className="searchTerm" value={text} onChange={handleChange} list="suggest" />
-      <datalist id="suggest">
+      <input type="text" className="searchTerm" value={text} onChange={handleChange} list="suggestions" />
+      <datalist id="suggestions">
         {suggestion.map((country, i) => (
           <option key={i} value={country.name} />
         ))}
